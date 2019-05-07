@@ -1,0 +1,65 @@
+@import "./mixins.scss";
+
+.intro {
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.video {
+  position: absolute;
+  z-index: -2;
+  margin-left: -15px;
+  top: 0;
+  width: 105vw;
+  height: auto;
+  @include tablet_1200 {
+    width: initial;
+    max-width: initial;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.intro__footer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+    z-index: 5;
+}
+.parallax{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: - 1;
+  }
+  .parallax__layer{
+   position: absolute;
+    width: 115%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    will-change: transform;
+  
+  }
+  .parallax__image{
+    width: 105%;
+    min-width: 1000px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 19%);
+    height: 60%;
+    &_about{
+      bottom: -10vh;
+    }
+  }

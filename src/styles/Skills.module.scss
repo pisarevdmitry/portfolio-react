@@ -1,0 +1,43 @@
+@import "./mixins.scss";
+
+.skills-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  @include tablet_1200 {
+    justify-content: space-between;
+  }
+}
+.skills-list__item {
+  margin-bottom: rem(20);
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.skills-row__item {
+  width: 120px;
+
+  @include iphone {
+    margin-right: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.skills-row__list {
+  margin-right: rem(40);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  @include ipad {
+    justify-content: center;
+    margin-right: 0;
+  }
+}
+.skills-row__title {
+  font: rem(28) Roboto-Medium;
+  @include ipad {
+    text-align: center;
+  }
+}

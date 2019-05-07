@@ -1,0 +1,39 @@
+@import './mixins.scss';
+.signature{
+  display: flex;
+  flex-direction: row;
+  color: white;
+  font: rem(16) Roboto-Light;
+  @include footer-iphone{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content:space-between;
+    min-height:rem(45);
+  }
+}
+.signature__item{
+  margin-right: rem(5);
+  padding-right: rem(5);
+  @include footer-iphone{
+    text-align: center;
+
+  }
+  &:first-child{
+    border-right: 1px solid white;
+    @include footer-iphone{
+      width: 100%;
+      border-right: none;
+
+
+    }
+    &:before{
+      content: "\00A9";
+      margin-right: rem(5);
+    }
+  }
+  &:nth-child(2){
+    border-right: 2px solid white;
+  }
+ }
+
+

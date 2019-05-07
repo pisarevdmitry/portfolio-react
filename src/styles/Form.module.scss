@@ -1,0 +1,232 @@
+@import './mixins.scss';
+
+.form-container{
+    &_feedback{
+     height: 460px;
+      box-shadow: -179px 0px 218px -96px rgba(255,255,255,0.1) inset;
+      position: relative;
+     margin: 0 auto;
+     margin-bottom: 50px;
+     width: 380px;
+     background: rgba(38,31,41,.5);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding-top: 25px;
+ 
+       @include ipad{
+        width: 350px;
+        height: 435px;
+        margin-bottom: 56px;
+      }
+      @include iphone{
+        width: 300px;
+        height: 425px;
+      }
+ 
+   }
+ }
+ .form{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+ }
+ .feedback{
+   margin-top: 15px;
+ }
+ .form__row{
+   width: 90%;
+   display: flex;
+   flex-flow: row;
+   justify-content: center;
+   margin-bottom: 15px;
+   &:last-child{
+     margin-bottom: 0;
+   }
+   &_radio{
+     flex-direction:row;
+     flex-wrap: wrap;
+     margin-bottom: 37px;
+   }
+   &_buttons{
+     flex: 1 ;
+     width: 100%;
+     margin-top: 25px;
+     @include ipad{
+       margin-top: 40px;
+     }
+     @include iphone{
+       margin-top: 45px;
+     }
+   }
+   &_auth{
+     @include ipad{
+       margin-top: 30px;
+     }
+     @include iphone{
+       margin-top: 15px;
+     }
+   }
+ }
+ .form__column{
+   display: flex;
+   flex-direction: row;
+   margin-right: 35px;
+   &:last-child{
+     margin-right: 0;
+   }
+ }
+ .form__input{
+   height: 42px;
+   flex: 1;
+   padding-left: 20px;
+   outline: none;
+   border: none;
+   &_feedback{
+     color: white;
+     opacity: .5;
+     background: rgba(255,255,255,.07);
+ 
+   }
+ }
+ .form__textarea{
+   flex: 1;
+   height: 125px;
+   color: white;
+   opacity: .5;
+   background: rgba(255,255,255,.07);
+   outline: none;
+   border: transparent;
+   resize: none;
+   padding-left: 20px;
+   padding-top: 10px;
+ }
+ .form__label_text{
+   width: 42px;
+   height: 42px;
+   background: #f0efe9;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ .form__label_type_check{
+   font: 16px RobotuRegular;
+   opacity: .8;
+   color: white;
+   position: relative;
+   display: flex;
+   align-items: center;
+   &:before{
+     content: '';
+     width:20px;
+     height: 20px;
+     background-color: white;
+     margin-right: 7px;
+   }
+   &:after{
+     content: '';
+     width: 12px;
+     height: 9px;
+     background:url("../assets/images/svg/check.svg");
+     background-size: cover;
+     position: absolute;
+     left: 5px;
+     top: 50%;
+     transform: translateY(-50%);
+     opacity:0 ;
+   }
+  }
+ input[type="checkbox"]:checked + .form__label_type_check:before{
+   background:$blue ;
+ }
+ input[type="checkbox"]:checked + .form__label_type_check:after {
+   opacity: 1;
+ }
+ .form__image{
+   width: 15px;
+   height: 17px;
+   fill: $gray;
+ }
+ input[type="checkbox"],input[type="radio"]{
+ display: none;
+ }
+ 
+ .form__radio_title{
+   flex-basis: 100%;
+   text-align: center;
+   font: 16px RobotoBold;
+   color: white;
+   opacity: .8;
+   margin-bottom: 15px;
+ }
+ .form__label_type_radio{
+   font: 16px RobotuRegular;
+   opacity: .8;
+   color: white;
+   position: relative;
+   display: flex;
+   align-items: center;
+    &:before{
+     content: '';
+     width:20px;
+     height: 20px;
+     background-color: white;
+     margin-right: 7px;
+     border-radius: 50%;
+   }
+   &:after{
+     content: '';
+     width: 8px;
+     height: 8px;
+     background:$blue;
+     background-size: cover;
+     border-radius: 50%;
+     position: absolute;
+     left: 6px;
+     top: 50%;
+     transform: translateY(-50%);
+     opacity:0 ;
+   }
+ }
+ input[type="radio"]:checked + .form__label_type_radio:after {
+   opacity: 1;
+ }
+ .form__link,.form__submit,.form__reset{
+   flex-basis: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   font: rem(18) Roboto-Medium;
+   color: white;
+   cursor: pointer;
+   background: $blue;
+   border: none;
+   outline: none;
+   &:hover{
+     background: $darkBlue;
+   }
+   &_feedback{
+     background: transparent;
+     opacity: .5;
+     &:hover{
+      opacity: 1;
+       background: $blue;
+     }
+   }
+ }
+ .form__link{
+   border-right: 2px solid #7296d2;
+   text-decoration:none ;
+ 
+ }
+ .feedback__status{
+   font: 16px RobotuRegular;
+   position: absolute;
+   bottom: 68px;
+   color: white;
+   opacity: .5
+ 
+ }

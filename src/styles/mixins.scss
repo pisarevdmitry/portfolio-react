@@ -1,0 +1,29 @@
+ @import './variables.scss';
+ @function rem ($size){
+  @return ($size/16)+rem;
+}
+ @mixin  tablet_1200{
+   @media (max-width: 1200px) {
+     @content
+   }
+ }
+ @mixin ipad{
+   @media(max-width: 768px){
+     @content
+   }
+ }
+ @mixin iphone{
+   @media(max-width:450px){
+     @content
+   }
+ }
+ @mixin footer-iphone{
+   @media(max-width:620px){
+     @content
+   }
+ }
+ @mixin footer-ipad{
+   @media(max-width:830px){
+     @content
+   }
+ }

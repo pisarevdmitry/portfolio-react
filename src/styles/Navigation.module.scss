@@ -1,0 +1,77 @@
+@import './mixins.scss';
+
+.navigation{
+    width: 100%;
+  }
+  .navigation_fixed{
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(24,54,105,.87);
+    z-index: 5;
+    opacity: 0;
+    transition: all .9s linear;
+  }
+  .navigation__list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+    @include footer-ipad{
+      margin-bottom: 15px;
+    }
+  }
+  
+  .navigation__link{
+    text-decoration: none;
+  }
+  .navigation__text{
+    font-family: Roboto-Bold;
+    color: white;
+  }
+  .navigation_fixed ul{
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .navigation_fixed li{
+    margin-bottom:rem(40) ;
+    position: relative;
+    left: -100%;
+    transition: all .8s linear;
+    @include iphone{
+      transition: all .6s linear;
+    }
+  }
+  .navigation_fixed .navigation__link_current{
+    position: relative;
+    &:after{
+      content: "";
+      width: 89px;
+      height: 4px;
+      background: white;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      @include iphone{
+        width: 56px;
+        height: 3px;
+      }
+    }
+  
+  }
+  .navigation_fixed a{
+    padding: rem(15) 0;
+    font: rem(63) sansus-webissimo-regular-webfont;
+    text-transform: uppercase;
+    @include ipad{
+      font-size: rem(48);
+    }
+    @include iphone{
+      font-size: rem(38);
+    }
+   }

@@ -1,0 +1,44 @@
+.btn{
+  background: transparent;
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid white;
+  text-decoration: none;
+  cursor: pointer;
+  &_autorization{
+    position: absolute;
+    top: 0.9375rem;
+    right: 2.5rem;
+    transition-property: background,border;
+    transition-duration:  .5s ;
+    transition-timing-function: linear;
+
+    &:hover{
+      background:$darkBlue;
+      border: 1px solid $darkBlue;
+    }
+  }
+  &_link{
+    padding: rem(15) rem(45);
+    background: $blue;
+    position: relative;
+    padding-left: rem(50);
+    &:before{
+      margin-left: rem(15);
+      content: "";
+      width: 20px;
+      height: 19px;
+      //background: url("../images/svg/link.svg");
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 0;
+    }
+  }
+ }
+.btn__text{
+  font: rem(16) Roboto-Medium;
+  color: white;
+  display: block;
+
+
+}

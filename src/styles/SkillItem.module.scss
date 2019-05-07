@@ -1,0 +1,26 @@
+@import "./mixins.scss";
+.skill {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.skill__circle {
+  fill: none;
+  stroke-width: 18;
+}
+.skill__circle-first {
+  stroke: #dfdcd5;
+}
+.skill__circle-second {
+  stroke: $blue;
+  stroke-dasharray: 0.0001 282.6;
+}
+.skill__title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font: rem(14) Roboto-Medium;
+  color: $blue;
+  text-align: center;
+}

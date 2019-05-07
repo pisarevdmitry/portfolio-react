@@ -1,0 +1,28 @@
+.autherization{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25px;
+    height: 100%;
+    position: relative;
+    //position: absolute;
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+    //backface-visibility: hidden;
+    //transform: rotateY(180deg);
+  
+  }
+  .autherization__title{
+    font: 35px sansus-webissimo-regular-webfont;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 15px;
+  }
+  .autherization__message{
+    position: absolute;
+    bottom: 69px;
+    font: 16px RobotuRegular;
+    color: red;
+    opacity: .8;
+  }

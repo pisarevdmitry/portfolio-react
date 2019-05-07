@@ -1,0 +1,89 @@
+@import './mixins.scss';
+
+.footer{
+    background:rgba(28,31,41,.85);
+    padding-top: rem(20);
+    padding-bottom: rem(40);
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    @include footer-ipad{
+      flex-wrap: wrap;
+      padding: rem(20) rem(15) rem(60) rem(15);
+    }
+    @include footer-iphone{
+      padding-bottom: rem(70);
+    }
+    &_absolute{
+      left: 0;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      z-index: 2;
+    }
+  }
+  
+  .footer__column{
+    flex-basis: 33%;
+    border-right: 2px solid #64656c;
+    padding: 0 rem(20);
+    display: flex;
+    flex-direction: column;
+    @include footer-ipad{
+      border-right: none;
+    }
+  
+    &:first-child{
+      @include footer-ipad{
+        flex-basis: 100%;
+        border-bottom: 2px solid #64656c;
+        padding-bottom: 15px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+  
+    }
+    &:nth-child(2){
+      justify-content: space-between;
+      @include footer-ipad{
+        flex-basis: 50%;
+        justify-content: flex-start;
+      }
+      @include footer-iphone{
+        flex-basis:100%;
+        align-items: center;
+        border-bottom: 2px solid #64656c;
+        padding: 5px 0;
+      }
+    }
+    &:nth-child(3){
+      border-right: none;
+      @include footer-ipad{
+        flex-basis: 50%;
+        align-items: flex-end;
+      }
+      @include footer-iphone{
+        padding-top: rem(14);
+        flex-basis:100%;
+        align-items: center;
+        justify-content: space-between;
+        min-height: rem(120);
+  
+      }
+    }
+  }
+  .footer__signature{
+   position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: $blue;
+    opacity: .85;
+    display: flex;
+    justify-content: center;
+    padding:rem(7) 0;
+    right: 0;
+  }
+  .footer__text{
+    font: rem(16)/rem(24) Roboto-Regular;
+    color: white
+  }

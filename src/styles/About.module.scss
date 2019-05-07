@@ -1,0 +1,171 @@
+@import "./mixins.scss";
+
+.about {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  min-height: 650px;
+  @include ipad {
+    flex-direction: column;
+  }
+}
+.about__left {
+  padding-left: rem(20);
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  padding-right: rem(40);
+  background: #f2f0e8;
+  @include ipad {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  &-title {
+    margin-right: rem(65);
+    width: 30%;
+    position: relative;
+    z-index: 5;
+    @include tablet_1200 {
+      width: 100%;
+    }
+  }
+  &-content {
+    padding-top: rem(30);
+    width: 54%;
+    @include tablet_1200 {
+      width: 100%;
+    }
+  }
+  @include tablet_1200 {
+    flex-direction: column;
+  }
+}
+.about__right-content {
+  flex: 1;
+  display: flex;
+}
+.about__right {
+  padding-top: rem(30);
+  padding-right: rem(20);
+  padding-left: rem(10);
+  padding-bottom: rem(30);
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  background: #f4f5f0;
+  @include ipad {
+    width: 100%;
+  }
+  &-title {
+    display: flex;
+    justify-content: center;
+    @include ipad {
+      width: 63%;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+  &-text {
+    @include ipad {
+      width: 63%;
+      margin: 0 auto;
+    }
+    @include iphone {
+      width: 100%;
+      padding: 0 10px;
+    }
+  }
+}
+.about-title {
+  padding: rem(15) 0;
+  font: rem(63) sansus-webissimo-regular-webfont;
+  text-transform: uppercase;
+  @include iphone {
+    font-size: rem(50);
+  }
+  position: relative;
+  text-align: center;
+}
+.user-description__image {
+  min-height: rem(394);
+  width: 100%;
+  height: 400px;
+  background: url("../assets/images/jpg/photo-b.jpg");
+  background-repeat: no-repeat;
+  background-position: 50%, 50%;
+  background-size: cover;
+  margin-bottom: rem(35);
+  @include ipad {
+    width: 63%;
+    margin: 0 auto;
+  }
+  @include iphone {
+    width: 100%;
+  }
+}
+.user-description__title {
+  display: flex;
+  justify-content: center;
+}
+.user-description__subtitle{
+    padding-bottom: rem(40);
+  font: rem(35) sansus-webissimo-regular-webfont;
+  text-transform: uppercase;
+  @include ipad{
+    padding-bottom: rem(20);
+  }
+  @include iphone{
+    font-size: rem(30)
+  }
+  position: relative;
+  &:after{
+    content: "";
+    width: 89px;
+    height: 4px;
+    background: $gray;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.user-description__text {
+  @include ipad {
+    width: 63%;
+    margin: 0 auto;
+  }
+  @include iphone {
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+}
+.main-text{
+    font: 1rem/1.5rem Roboto-Regular;
+}
+.about-bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  transform: translate(-50%, -45%) rotate(-168deg);
+  width: rem(210);
+  height: rem(140);
+  @include ipad {
+    top: 38%;
+    transform: translate(-58%, -45%) rotate(-168deg);
+  }
+  @include iphone {
+    width: rem(190);
+    height: rem(120);
+    display: none;
+  }
+}
+.about__image{
+    width: 100%;
+    height: 100%;
+    fill: #0548be;
+    stroke: #0548be;
+    opacity: .10;
+}

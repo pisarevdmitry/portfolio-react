@@ -1,0 +1,104 @@
+@import "./mixins.scss";
+
+.reviews {
+  background: url("../assets/images/jpg/review.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: rem(20) rem(20) rem(250) rem(20);
+  @include ipad {
+    padding-bottom: rem(265);
+  }
+  @include footer-iphone {
+    padding-bottom: 345px;
+  }
+}
+.reviews__title {
+  width: rem(500);
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  padding: rem(15) 0;
+  font: rem(63) sansus-webissimo-regular-webfont;
+  text-transform: uppercase;
+  color: white;
+  @include iphone {
+    width: initial;
+    margin-bottom: rem(35);
+    font-size: rem(50);
+  }
+}
+.reviewers {
+  display: flex;
+  justify-content: center;
+  @include ipad {
+    padding: 0 rem(16);
+  }
+  @include iphone {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.reviewer {
+  color: white;
+  width: rem(380);
+  margin-right: rem(15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font: rem(16) Roboto-Italic;
+  @include iphone {
+    margin-right: 0;
+  }
+}
+.reviewer__image {
+  width: rem(78);
+  height: rem(78);
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: rem(15);
+}
+.reviewer__signature {
+  margin-top: rem(15);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: rem(40);
+}
+.reviewer__name {
+  margin-bottom: rem(4);
+  font-family: Roboto-BoldItalic;
+}
+.reviewer__picture_big {
+  margin-top: 32px;
+}
+
+.rewiews__bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%) rotate(28deg);
+  width: rem(173);
+  height: rem(202);
+  @include ipad {
+    top: 38%;
+    transform: translate(-59%, -42%) rotate(28deg);
+  }
+  @include iphone {
+    width: rem(120);
+    height: rem(150);
+  }
+}
+.rewiews__image {
+  width: 100%;
+  height: 100%;
+  fill: white;
+  stroke: white;
+  opacity: 0.15;
+}
+
