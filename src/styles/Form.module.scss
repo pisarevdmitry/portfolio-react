@@ -33,9 +33,7 @@
    width: 100%;
    height: 100%;
  }
- .feedback{
-   margin-top: 15px;
- }
+
  .form__row{
    width: 90%;
    display: flex;
@@ -208,25 +206,9 @@
    &:hover{
      background: $darkBlue;
    }
-   &_feedback{
-     background: transparent;
-     opacity: .5;
-     &:hover{
-      opacity: 1;
-       background: $blue;
-     }
-   }
  }
  .form__link{
    border-right: 2px solid #7296d2;
    text-decoration:none ;
- 
- }
- .feedback__status{
-   font: 16px RobotuRegular;
-   position: absolute;
-   bottom: 68px;
-   color: white;
-   opacity: .5
  
  }

@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import styles from "../styles/ReviewSection.module.scss";
 import { ReactComponent as Stars } from "../assets/images/svg/stars3.svg";
 import Image1 from '../assets/images/jpg/reviewer1.jpg'
-import Image2 from '../assets/images/jpg/reviewer1.jpg';
+import Image2 from '../assets/images/jpg/reviewer2.jpg';
 import FeedbackForm from './FeedbackForm';
 export default class ReviewSection extends PureComponent {
   render() {
@@ -34,7 +34,7 @@ export default class ReviewSection extends PureComponent {
             </div>
           </li>
           <li className={styles["reviewer"]}>
-            <div cclassName={styles["reviewer__image"]}>
+            <div className={styles["reviewer__image"]}>
               <img
                 className={styles["reviewer__picture"]}
                 src={Image2}

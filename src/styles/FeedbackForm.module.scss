@@ -45,3 +45,31 @@
     font-size: rem(30);
   }
 }
+.feedback__form{
+    margin-top: 15px;
+}
+.feedback__input{
+    color: white;
+    opacity: .5;
+    background: rgba(255,255,255,.07);
+    font: rem(16)/rem(24) Roboto-Regular;
+  }
+ .feedback__textarea{
+   font: rem(16)/rem(24) Roboto-Regular;
+ } 
+ .feedback__status{
+    font: 16px RobotuRegular;
+    position: absolute;
+    bottom: 68px;
+    color: white;
+    opacity: .5
+  
+  }
+.feedback__submit, .feedback__reset{
+    background: transparent;
+    opacity: .5;
+    &:hover{
+     opacity: 1;
+      background: $blue;
+    }
+  }  

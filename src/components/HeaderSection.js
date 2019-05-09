@@ -47,7 +47,7 @@ export default class HeaderSection extends PureComponent {
           >
             <img
               className={cx(styles["parallax__image"], {
-                [styles["parallax__image_about"]]: pathname === "/about"
+                [styles["parallax__image_bottom"]]: pathname !== "/blog"
               })}
               src={Layer}
               alt="parallax"
