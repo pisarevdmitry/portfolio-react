@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import cx from "classnames";
 import Social from "./Social";
+import FixedMenu from './HamburgerMenu';
 import styles from "../styles/HeaderSection.module.scss";
 import { ReactComponent as Stars } from "../assets/images/svg/stars1.svg";
 import Layer from "../assets/images/png/Layer 1.png";
@@ -56,6 +57,7 @@ export default class HeaderSection extends PureComponent {
         </div>
         <div className={styles["header-section__top-line"]}>
           <Social />
+          <FixedMenu/>
         </div>
         <div className={styles["header-section__content"]}>
           <span
@@ -96,9 +98,6 @@ export default class HeaderSection extends PureComponent {
         <div className={styles['header__title_works']}>Мои работы
         <span className={`${styles["header-section__bg"]} ${styles['header-section__bg_works']}`}>
             <Stars2 className={styles['header-section__image']}/>
-            {/* <svg class="bg__image">
-              <use xlink:href="assets/images/svg/sprite.svg#stars2"></use>
-            </svg> */}
             </span>
             </div>}
       </section>

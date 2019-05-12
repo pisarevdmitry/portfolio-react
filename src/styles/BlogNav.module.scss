@@ -1,0 +1,106 @@
+@import "./mixins.scss";
+
+.blog-nav {
+  width: 33%;
+  flex-basis: rem(280);
+  margin-right: rem(120);
+  z-index: 5;
+  transition: transform 0.7s linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 7%;
+
+  &:after {
+    @include ipad {
+      content: "";
+      width: 24px;
+      height: 41px;
+      border-radius: 50%;
+      position: absolute;
+      background: $darkBlue;
+      top: 158vh;
+      right: 0;
+      transform: translateX(40%);
+      box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+  }
+  @include ipad {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    width: 50%;
+    height: 100%;
+    margin-right: 0;
+    background: $darkBlue;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  }
+  @include iphone {
+    width: 70%;
+  }
+  &_fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    &:after {
+      @include ipad {
+        content: "";
+        width: 24px;
+        height: 41px;
+        border-radius: 50%;
+        position: absolute;
+        background: $darkBlue;
+        top: 50%;
+        right: 0;
+        transform: translate(40%, -50%);
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+    }
+  }
+  &_opened {
+    transform: translateX(0);
+  }
+}
+.nav-list {
+  @include ipad {
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+    z-index: 5;
+  }
+  &_fixed {
+    @include ipad {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+.nav-list__item {
+  margin-bottom: rem(20);
+  padding: rem(10);
+  text-align: right;
+  cursor: pointer;
+  @include ipad {
+    color: white;
+    opacity: 0.7;
+  }
+  &_active {
+    color: $blue;
+    border-right: 2px solid $blue;
+    @include ipad {
+      opacity: 1;
+      color: white;
+      border-right: 0;
+    }
+  }
+}
+.nav__text{
+    font: 16px/24px Roboto-Regular;
+    position: relative;
+    z-index: -1;
+  
+  }

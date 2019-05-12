@@ -6,7 +6,7 @@ export default class Map extends Component {
     super();
     this.map = React.createRef();
     this.gmap = null;
-    this.screenWidth = window.screen.width;
+    this.screenWidth = document.documentElement.clientWidth;
   }
   componentDidMount() {
     console.log(this.map.current);
@@ -20,7 +20,7 @@ export default class Map extends Component {
   }
   resize = () => {
       console.log('resize')
-       this.screenWidth = window.screen.width;
+       this.screenWidth = document.documentElement.clientWidth;
        this.setMap()
   }
   loadMap = () => {

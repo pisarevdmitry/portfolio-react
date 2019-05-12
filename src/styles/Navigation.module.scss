@@ -11,7 +11,6 @@
     background: rgba(24,54,105,.87);
     z-index: 5;
     opacity: 0;
-    transition: all .9s linear;
   }
   .navigation__list{
     display: flex;
@@ -40,11 +39,6 @@
   .navigation_fixed li{
     margin-bottom:rem(40) ;
     position: relative;
-    left: -100%;
-    transition: all .8s linear;
-    @include iphone{
-      transition: all .6s linear;
-    }
   }
   .navigation_fixed .navigation__link_current{
     position: relative;

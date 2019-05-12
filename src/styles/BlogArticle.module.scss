@@ -1,0 +1,29 @@
+@import "./mixins.scss";
+
+.article__title {
+  padding-bottom: 2.5rem;
+  font: 2.1875rem sansus-webissimo-regular-webfont;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  .sub-title {
+    padding-bottom: 1.25rem;
+  }
+}
+@media (max-width: 450px) {
+  .sub-title {
+    font-size: 1.875rem;
+  }
+}
+.article__date,
+.article__text {
+  font: 1rem/1.5rem Roboto-Regular;
+}
+.article__date {
+  font-family: Roboto-Medium;
+  color: #0548be;
+  text-transform: uppercase;
+}
+.article__text{
+    white-space: pre-wrap
+}

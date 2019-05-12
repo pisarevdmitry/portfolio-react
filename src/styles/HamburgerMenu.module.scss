@@ -1,0 +1,50 @@
+@import './mixins.scss';
+
+.fixed-menu{
+    height: 43px;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    width: 40px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    @include iphone{
+    width: 25px;
+    }
+  }
+  
+  .fixed-menu-bars{
+    width: rem(43);
+    height:rem(5);
+    background: white;
+    border-radius:rem(10) ;
+    box-shadow: 0 rem(15)  white, 0 rem(-15) white ;
+    transition: .5s linear;
+    @include iphone{
+     width: 25px;
+      box-shadow:0  rem(15)  white, 0 rem(-15) white;
+    }
+    &_opened{
+        box-shadow: none;
+        position: relative;
+        transform: rotate(45deg);
+        &:after{
+          content: '';
+          width: rem(43);
+          height: rem(5);
+          position: absolute;
+          background: white;
+          left: 0;
+          border-radius:rem(10);
+          transform: rotate(-90deg);
+          @include iphone{
+            width: 25px;
+          }
+        }
+      }
+    }
+  
