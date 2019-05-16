@@ -1,0 +1,28 @@
+@import '../mixins.scss';
+.input{
+    width: 40px;
+    min-height: 25px;
+    text-align: center;
+    border-radius: 5px;
+    outline: none;
+    border: transparent;
+    margin-right: rem(5);
+  }
+  .title{
+    font: rem(16) Roboto-Regular;
+    color: #474b57;
+    padding-right: rem(25);
+    min-width: 100px;
+  }
+  .button{
+    margin-left: rem(5);
+    background: $blue;
+    color: white;
+    border: transparent;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font: rem(16) Roboto-Medium;
+    outline: none;
+    cursor: pointer;
+  }
+  

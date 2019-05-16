@@ -1,0 +1,39 @@
+@import "../mixins.scss";
+.title {
+  font: rem(21) Roboto-Medium;
+  color: #474b57;
+  margin-bottom: rem(30);
+}
+.skills {
+  display: flex;
+  flex-flow: row wrap;
+  @include ipad {
+    flex-direction: column;
+  }
+}
+
+.error {
+  border: 1px solid firebrick;
+  outline: none;
+}
+.category-title {
+  font: rem(16) Roboto-Medium;
+  color: #474b57;
+  margin-bottom: rem(10);
+}
+
+.category-container {
+  margin-right: rem(50);
+  min-width: 370px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &:last-child {
+    margin-right: 0;
+  }
+  @include ipad {
+    margin-right: 0;
+    margin-bottom: rem(35);
+  }
+}
+

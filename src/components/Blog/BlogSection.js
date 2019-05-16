@@ -27,13 +27,23 @@ class BlogSection extends PureComponent {
     }
   }
   componentDidMount() {
-    const { loaded, loadAricles } = this.props;
+    const { loaded, loadAricles, articles } = this.props;
     if (!loaded) {
       loadAricles();
+    }
+    if(articles) {
+      this.setCurrentArticle();
     }
     this.onScroll();
     window.addEventListener("scroll", this.onScroll);
     window.addEventListener("resize", this.onResize);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    const {articles} = this.props
+    console.log(prevProps)
+    if(!prevProps.articles && articles) {
+     this.setCurrentArticle()
+    }
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.onScroll);

@@ -1,26 +1,58 @@
 import { takeLatest, put, take, call, fork } from "redux-saga/effects";
 import { eventChannel, END } from "redux-saga";
 import axios from "axios";
-import { loadWorks as loadWorksAction, setWorks } from "./actions";
-import { request } from "../../utils";
+import {
+  loadWorks as loadWorksAction,
+  setWorks,
+  addWorkRequest,
+  addWork as addWorkAction
+} from "./actions";
+import { setPopup } from "../popup";
 export default function*() {
   yield fork(watcher);
 }
 
 function* watcher() {
   yield fork(loadWorkss);
+  yield fork(addWork);
 }
 
 function* loadWorkss() {
   yield takeLatest(loadWorksAction, loadWorksFlow);
 }
 
+function* addWork() {
+  yield takeLatest(addWorkRequest, addWorkFlow);
+}
+
+function* addWorkFlow({ payload }) {
+  try {
+    const workData = new FormData();
+    Object.entries(payload.values).forEach(([name, value]) => {
+      workData.append(name, value);
+    });
+    const data = yield call(axios.post, "/api/work", workData, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    });
+    if (typeof payload.onSuccess === "function") {
+      payload.onSuccess();
+    }
+    yield put(addWorkAction(data.data));
+      yield put(setPopup("Успешно Добавлен"));
+  } catch (e) {
+    console.log(e);
+    yield put(setPopup("Server Eroor"));
+  }
+}
+
 function* loadWorksFlow() {
   try {
     const {
-    data: { slides: data }
+      data: { slides: data }
     } = yield call(axios.get, "/api/work");
-    console.log(data)
+    console.log(data);
     const skills = data.reduce((acc, skill) => {
       acc[skill._id] = skill;
       return acc;

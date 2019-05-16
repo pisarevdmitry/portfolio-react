@@ -1,13 +1,19 @@
 import React, { PureComponent } from "react";
-import {isEmail} from 'validator'
+import { isEmail } from "validator";
+import { connect } from "react-redux";
+import {
+  getFeedbackProccessing,
+  getFeedbackMsg,
+  feedBackRequest
+} from "../modules/feedback";
 import styles from "../styles/FeedbackForm.module.scss";
 import formStyles from "../styles/Form.module.scss";
-export default class FeedbackForm extends PureComponent {
+ class FeedbackForm extends PureComponent {
   state = {
     name: "",
     email: "",
     textarea: "",
-    error: ''
+    error: ""
   };
   onChangeHandler = e => {
     this.setState({
@@ -21,31 +27,35 @@ export default class FeedbackForm extends PureComponent {
       textarea: ""
     });
   };
-  validateFields =() => {
+  validateFields = () => {
+    const { name, email, textarea } = this.state;
+    if (!name || !email || !textarea) {
+      return { status: false, msg: "все поля требуется заполнить" };
+    }
+    if (!isEmail(email)) {
+      return { status: false, msg: "Некорректный email" };
+    }
+
+    return { status: true };
+  };
+  onSubmitHandler = e => {
+    e.preventDefault();
+    const {feedBackRequest} = this.props
     const {name, email, textarea} = this.state
-    if(!name || !email || !textarea) {
-      return {status: false, msg: 'все поля требуется заполнить'}
-    }
-    if(!isEmail(email)) {
-      return {status: false, msg: 'Некорректный email'}
-    }
-    
-    return {status: true}
-  }
-  onSubmitHandler = (e) => {
-   e.preventDefault();
     const isValid = this.validateFields();
-    if(!isValid.status) {
+    if (!isValid.status) {
       return this.setState({
         error: isValid.msg
-      })
+      });
     }
+    feedBackRequest({name, email, text: textarea})
     this.setState({
-      error: ''
-    })
-  }
+      error: ""
+    });
+  };
   render() {
     const { name, email, textarea, error } = this.state;
+    const {proceesing, serverMsg} = this.props
     return (
       <div className={styles.feedback}>
         <h2 className={styles["feedback__title"]}>Связаться со мной</h2>
@@ -90,7 +100,7 @@ export default class FeedbackForm extends PureComponent {
               onChange={this.onChangeHandler}
             />
           </div>
-          {error && <div className={styles["feedback__status"]}>{error}</div>}
+          {(error || serverMsg) && <div className={styles["feedback__status"]}>{error || serverMsg}</div>}
           <div
             className={`${formStyles["form__row"]} ${
               formStyles["form__row_buttons"]
@@ -103,6 +113,7 @@ export default class FeedbackForm extends PureComponent {
               type="submit"
               name="submit"
               value="Отправить"
+              disabled={proceesing}
             />
             <input
               className={`${formStyles["form__reset"]} ${
@@ -119,3 +130,9 @@ export default class FeedbackForm extends PureComponent {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  serverMsg : getFeedbackMsg(state),
+  proceesing: getFeedbackProccessing(state)
+})
+export default connect(mapStateToProps,{feedBackRequest})(FeedbackForm)

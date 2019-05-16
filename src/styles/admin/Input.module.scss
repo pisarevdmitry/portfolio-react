@@ -1,0 +1,22 @@
+@import '../mixins.scss';
+.input{
+    width: 300px;
+    height: 44px;
+    padding-left: 15px;
+    border: transparent;
+    border-radius:5px;
+    font: rem(16) Roboto-Regular;
+    @include iphone{
+      width: 100%;
+    }
+  }
+  .input::-webkit-input-placeholder {
+    color:rgba(71,75,87,.5);
+  }
+  .input::-moz-placeholder {
+    color:rgba(71,75,87,.5);}
+  .input:-moz-placeholder{
+    color:rgba(71,75,87,.5);}
+  .input:-ms-input-placeholder {
+    color:rgba(71,75,87,.5);
+  }

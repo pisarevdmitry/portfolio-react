@@ -1,6 +1,6 @@
 import skillsReducer from './reducer'
-import {getLoaded, getSkills}  from './selectors';
-import { loadSkills } from './actions'
+import {getLoaded, getSkills , getRequestProcessing}  from './selectors';
+import { loadSkills, addSkillRequest, deleteSkillRequest, updateSkillsRequest } from './actions'
 import saga from './sagas';
 
 export default skillsReducer;
@@ -8,5 +8,9 @@ export {
     saga as skillsSaga,
     getLoaded,
     getSkills,
-    loadSkills
+    loadSkills,
+    addSkillRequest,
+    getRequestProcessing,
+    updateSkillsRequest,
+    deleteSkillRequest
 }

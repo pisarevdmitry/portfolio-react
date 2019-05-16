@@ -1,0 +1,12 @@
+@import '../mixins.scss';
+.button{
+    padding: 12px 15px;
+    background: $blue;
+    color: white;
+    border: transparent;
+    border-radius: 5px;
+    font: rem(16) Roboto-Medium;
+    margin-top: rem(15);
+    outline: none;
+    cursor: pointer;
+  }

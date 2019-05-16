@@ -4,10 +4,12 @@ import Video from "../assets/video/night.mp4";
 import Hero from "./Hero";
 import LogIn from "./LogIn";
 import Signature from "./Signature";
+import WithAuth from './HOC/withAuth'
 import ParalaxLayer from "../assets/images/png/Layer 1.png";
 import { CSSTransition } from "react-transition-group";
+import withAuth from "./HOC/withAuth";
 
-export default class Home extends PureComponent {
+ class Home extends PureComponent {
   state = {
     parallaxTranslate: {
       x: 0,
@@ -33,6 +35,13 @@ export default class Home extends PureComponent {
     });
     //console.log(movementX, movementY)
   };
+  onAuthHandler = () => {
+    const {user, history} = this.props
+    if(!user) {
+      return this.flipContent()
+    }
+    history.push('/admin')
+  }
   flipContent = () => {
     this.setState({
       flipFront: !this.state.flipFront
@@ -49,14 +58,15 @@ export default class Home extends PureComponent {
       flipFront,
       flipBack
     } = this.state;
+    const {user} = this.props
     return (
       <div onMouseMove={this.onMouseMoveHandler} className={styles.intro}>
           {flipFront && (
             <button
-              onClick={this.flipContent}
+              onClick={this.onAuthHandler}
               className="btn btn_autorization btn__text"
             >
-              Авторизоваться
+              {!user? 'Авторизоваться' : 'Войти' }
             </button>
           )}
         <video className={styles.video} autoPlay loop muted>
@@ -100,3 +110,4 @@ export default class Home extends PureComponent {
     );
   }
 }
+export default withAuth(Home)

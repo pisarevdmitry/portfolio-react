@@ -1,0 +1,29 @@
+@import '../mixins.scss';
+
+.header{
+    background: $blue;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    @include iphone{
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .title{
+    font: rem(28) Roboto-Medium;
+    color: white;
+    text-align: center;
+    @include iphone{
+      order: 2;
+    }
+  }
+  .logout{
+    margin-left: auto;
+    color: rgba(255,255,255,.7);
+    font: rem(16) Roboto-Medium;
+    @include iphone{
+      margin-left: 0;
+      margin-bottom: rem(10);
+    }
+  }

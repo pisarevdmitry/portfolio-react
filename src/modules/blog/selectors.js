@@ -1,5 +1,6 @@
 import { createSelector } from "reselect";
 export const getArticlesLoaded = state => state.blog.loaded;
+export const getRequestProcessing = state => state.blog.requestProccessing;
 const getItems = state => state.blog.articles;
 
 export const getArticles = createSelector(

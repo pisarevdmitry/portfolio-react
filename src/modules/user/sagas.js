@@ -1,34 +1,31 @@
 import { takeLatest, put, call, fork } from "redux-saga/effects";
-/* import {
-  loadArticles as loadArticlesAction,
-  setArticles,
-  loadArticle as loadArticleAction,
-  setArticle
-} from "./articlesActions"; */
-//import { request } from "../../utils";
+
+import axios from "axios";
+import { authRequest, authRequestEnd, setAuthMsg ,authRequestSuccess } from "./actions";
+
 export default function*() {
-  //yield fork(watcher);
+  yield fork(watcher);
 }
 
-/* function* watcher() {
-  yield fork(loadArticles);
-  yield fork(loadArticle);
+function* watcher() {
+  yield fork(auth);
 }
 
-function* loadArticles() {
-  yield takeLatest(loadArticlesAction, loadArticlesFlow);
+function* auth() {
+  yield takeLatest(authRequest, authFlow);
 }
-function* loadArticle() {
-    yield takeLatest(loadArticleAction, loadArticleFlow);
+
+function* authFlow({ payload }) {
+  try {
+    yield call(axios.post, "/api/auth", payload.values);
+    yield put(authRequestSuccess());
+    yield put(setAuthMsg(""));
+     if (typeof payload.onSuccess === "function") {
+      payload.onSuccess();
+    }
+  } catch (e) {
+    console.log(e.response);
+    yield put(authRequestEnd());
+    yield put(setAuthMsg(e.response && e.response.data.message));
   }
-
-function* loadArticlesFlow() {
-  const data = yield call(request,"http://localhost:3000/api/article", "get");
-  yield put(setArticles(data));
 }
-
-function* loadArticleFlow({payload}) {
-    const data = yield call(request,`http://localhost:3000/api/article/${payload}`, "get");
-    yield put(setArticle(data));
-  } */
-  

@@ -1,7 +1,7 @@
 import {createSelector} from 'reselect'
 export const getLoaded = state => state.skills.loaded;
-const getItems = state => state.skills.items;
-
+export const getItems = state => state.skills.items;
+export const getRequestProcessing = state => state.skills.requestProccessing;
 export const getSkills = createSelector(getItems,items => {
    if(!items) {
        return null

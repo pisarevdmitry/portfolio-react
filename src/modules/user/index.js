@@ -1,9 +1,7 @@
-//import { loadArticles, loadArticle } from './articlesActions'
-import userReducer from './userReducer'
-//import {getArticles, getArticlesLoading, getArticlesLoaded}  from './selectors'
-import saga from './sagas';
+import authReducer from "./reducer";
+import { getauthProccessing, getauthMsg, isLogged } from "./selectors";
+import { authRequest } from "./actions";
+import saga from "./sagas";
 
-export default userReducer;
-export {
-    saga as usersSaga
-}
+export default authReducer;
+export { saga as authSaga, getauthMsg, getauthProccessing, authRequest, isLogged };

@@ -1,0 +1,38 @@
+@import '../mixins.scss';
+.nav {
+  background: #f0efe9;
+}
+.list {
+  @include iphone {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.list__item {
+  display: inline-flex;
+  @include iphone {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid white;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+.list__link {
+  padding: 20px 65px;
+  text-transform: uppercase;
+  border-right: 2px solid white;
+  text-decoration: none;
+  font: rem(16) Roboto-Medium;
+  color: rgb(71, 75, 87);
+  opacity: 0.8;
+  @include iphone {
+    text-align: center;
+    border-right: none;
+  }
+}
+.active-link {
+  background: white;
+  color: $blue;
+}
