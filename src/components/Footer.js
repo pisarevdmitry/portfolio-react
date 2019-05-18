@@ -1,11 +1,11 @@
 import React from "react";
 import cx from "classnames";
+import PropTypes from 'prop-types';
 import Social from "./Social";
 import Signature from "./Signature";
 import Navigation from './Navigation'
 import styles from "../styles/Footer.module.scss";
 const Footer = props => {
-  console.log(props);
   return (
     <footer
       className={cx(styles.footer, {
@@ -19,7 +19,7 @@ const Footer = props => {
         </span>
       </div>
       <div className={styles["footer__column"]}>
-        <Navigation/>
+        <Navigation />
         <Social />
       </div>
       <div className={styles["footer__column"]}>
@@ -34,5 +34,7 @@ const Footer = props => {
     </footer>
   );
 };
-
+Footer.propTypes ={
+  isAbsolute: PropTypes.bool.isRequired
+}
 export default Footer;

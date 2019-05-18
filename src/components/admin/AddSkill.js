@@ -1,7 +1,14 @@
 import React, { PureComponent } from 'react'
 import styles from '../../styles/admin/AddSkill.module.scss';
+import PropTypes from 'prop-types';
 
 export default class AddSkill extends PureComponent {
+  static propTypes = {
+   onSuccess: PropTypes.func,
+   category: PropTypes.string.isRequired,
+   onCreate: PropTypes.func.isRequired,
+   disabled: PropTypes.bool.isRequired
+   }
   state ={name : ''}
   createSkill = () => {
     const {name} = this.state

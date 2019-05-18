@@ -1,8 +1,13 @@
 import React, { PureComponent } from 'react'
 import styles from '../../styles/admin/AdminSkillItem.module.scss';
-
+import PropTypes from 'prop-types';
 
 export default class AdminSkillItem extends PureComponent {
+  static propTypes = {
+   item: PropTypes.object.isRequired,
+   onDelete: PropTypes.func,
+   onChange: PropTypes.func
+  }
   _onDelete = () => {
     const {item, onDelete} = this.props
     onDelete(item['_id'])

@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import styles from "../../styles/admin/WorkForm.module.scss";
 import { withFormik } from "formik";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 import {addWorkRequest, getRequestProcessing} from '../../modules/works'
 import inputStyles from "../../styles/admin/Input.module.scss";
 import buttonStyles from "../../styles/admin/Button.module.scss";
@@ -27,7 +28,18 @@ const fields = [
     label: "file"
   }
 ];
+
 class WorkForm extends PureComponent {
+  static propTypes = {
+    handleChange: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+    setFieldValue: PropTypes.func.isRequired,
+    values: PropTypes.object.isRequired,
+    touched: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired,
+    requestProcessing: PropTypes.bool.isRequired,
+    addWorkRequest: PropTypes.func.isRequired
+  }
   handleChange =(e) => {
     const {  handleChange, setFieldValue } = this.props;
     if(e.target.type === 'file') {

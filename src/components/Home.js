@@ -1,25 +1,30 @@
 import React, { PureComponent } from "react";
+import {Helmet} from "react-helmet";
+import PropTypes from 'prop-types';
 import styles from "../styles/Home.module.scss";
 import Video from "../assets/video/night.mp4";
 import Hero from "./Hero";
 import LogIn from "./LogIn";
 import Signature from "./Signature";
-import WithAuth from './HOC/withAuth'
-import ParalaxLayer from "../assets/images/png/Layer 1.png";
+import ParalaxLayer from "../assets/images/png/Layer 1-min.png";
 import { CSSTransition } from "react-transition-group";
 import withAuth from "./HOC/withAuth";
 
  class Home extends PureComponent {
+  static propTypes = {
+    user: PropTypes.bool.isRequired,
+    history: PropTypes.object.isRequired
+  }
   state = {
     parallaxTranslate: {
       x: 0,
       y: 0
     },
-    factor: 0.04,
+    factor: 0.03,
     flipFront: true,
     flipBack: false
   };
-
+ 
   onMouseMoveHandler = e => {
     e.persist();
     const { movementX, movementY } = e;
@@ -61,6 +66,9 @@ import withAuth from "./HOC/withAuth";
     const {user} = this.props
     return (
       <div onMouseMove={this.onMouseMoveHandler} className={styles.intro}>
+          <Helmet>
+            <title>Home</title>
+          </Helmet>
           {flipFront && (
             <button
               onClick={this.onAuthHandler}

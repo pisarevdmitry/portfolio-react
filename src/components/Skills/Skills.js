@@ -1,10 +1,17 @@
 import React, { PureComponent } from 'react'
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {getLoaded, loadSkills, getSkills} from '../../modules/skills';
 import styles from '../../styles/Skills.module.scss'
 import SkillItem from './SkillItem'
  class Skills extends PureComponent {
-  
+    static propTypes = {
+      isLoaded: PropTypes.bool.isRequired,
+      skills: PropTypes.oneOfType([
+        PropTypes.oneOf([null]),
+        PropTypes.object,
+      ])
+    }
    componentDidMount() {
     const {isLoaded, loadSkills} = this.props;
     if(!isLoaded) {

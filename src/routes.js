@@ -3,7 +3,7 @@ import Main from './components/Main';
 import AboutPage from './components/AboutPage'
 import AdminPage from './components/admin/AdminPage'
 import MyWorksPage from './components/MyWorksPage';
-import BlogPage from './components/Blog/BlogSection';
+import BlogPage from './components/Blog/BlogPage';
 import BlogForm from './components/admin/BlogForm';
 import WorkForm from './components/admin/WorkForm';
 import SkillsBlock from './components/admin/SkillsBlock'

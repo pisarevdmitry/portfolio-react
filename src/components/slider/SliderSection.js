@@ -3,11 +3,20 @@ import { connect } from "react-redux";
 import { getIsWorksLoaded, getWorks, loadWorks } from "../../modules/works";
 import SliderDetails from "./SliderDetails";
 import SliderPreview from "./SliderPreview";
+import PropTypes from 'prop-types';
 import Slider from "./Slider";
 import styles from "../../styles/SlideSection.module.scss";
 import { ReactComponent as ArrowUp } from "../../assets/images/svg/portf_arrow_up.svg";
 import { ReactComponent as ArrowDown } from "../../assets/images/svg/portf_arrow_down.svg";
+
 class SliderSection extends PureComponent {
+  static propTypes = {
+    works: PropTypes.oneOfType([
+      PropTypes.oneOf([null]),
+      PropTypes.arrayOf(PropTypes.object),
+    ])
+  }
+
   constructor(props) {
     super(props);
     this.container = React.createRef();
@@ -46,18 +55,26 @@ class SliderSection extends PureComponent {
       }
     });
   };
-  renderSlides = () => {
+  preRenderSlides = () => {
     const { works } = this.props;
-    return works.map(work => {
-      return (
-        <img key={work["_id"]} src={`/upload/${work.file.filename}`} alt="i" />
-      );
+    return works.forEach(work => {
+        const img = document.createElement('img')
+        img.src = `/upload/${work.file.filename}`    
     });
   };
   componentDidMount() {
     const { isLoaded, loadWorks } = this.props;
     if (!isLoaded) {
       loadWorks();
+    } else {
+      this.preRenderSlides()
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    const {works} = this.props
+    console.log(prevProps)
+    if(!prevProps.work && works) {
+     this.preRenderSlides()
     }
   }
   onAnimationEnd = () => {
@@ -74,7 +91,6 @@ class SliderSection extends PureComponent {
       <section className={styles["slider-section"]}>
         {works && (
           <Fragment>
-            <div style={{display:'none'}}>{this.renderSlides()}</div>
             <SliderDetails work={works[currentSlide]} />
             <SliderPreview work={works[currentSlide]} />
             <div ref={this.container} className={styles["slider-container"]}>

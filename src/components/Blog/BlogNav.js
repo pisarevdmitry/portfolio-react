@@ -1,7 +1,15 @@
 import React, { PureComponent } from "react";
 import cx from "classnames";
+import PropTypes from 'prop-types';
 import styles from "../../styles/BlogNav.module.scss";
 export default class BlogNav extends PureComponent {
+  static propTypes = {
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    active: PropTypes.string.isRequired,
+    fixed: PropTypes.bool.isRequired,
+    isMobile: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired
+  }
     state={
         opened: false
     }

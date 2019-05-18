@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom'
 import { getauthProccessing, getauthMsg, authRequest } from "../modules/user";
 import panelStyles from "../styles/Panel.module.scss";
@@ -10,6 +11,11 @@ import { ReactComponent as LoginImage } from "../assets/images/svg/login.svg";
 import { ReactComponent as PasswordImage } from "../assets/images/svg/password.svg";
 
  class LogIn extends PureComponent {
+   static propTypes = {
+     procesing: PropTypes.bool.isRequired,
+     serverMsg: PropTypes.string,
+     authRequest: PropTypes.func.isRequired 
+   }
   state = {
     name: "",
     password: "",

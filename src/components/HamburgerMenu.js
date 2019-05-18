@@ -4,21 +4,24 @@ import FixedMenu from "./FixedMenu";
 import styles from "../styles/HamburgerMenu.module.scss";
 export default class HamburgerMenu extends PureComponent {
   state = {
-    opened: false
+    opened: false,
+    hidden: false
   };
   onClickHandler = () => {
     const { opened } = this.state;
     this.setState({
-      opened: !opened
+      opened: !opened,
+      hidden: false
     });
   };
   closeMenu = () => {
     this.setState({
-      opened: false
+      opened: false,
+      hidden: true
     });
-  }
+  };
   render() {
-    const { opened } = this.state;
+    const { opened, hidden } = this.state;
     return (
       <Fragment>
         <button onClick={this.onClickHandler} className={styles["fixed-menu"]}>
@@ -28,7 +31,7 @@ export default class HamburgerMenu extends PureComponent {
             })}
           />
         </button>
-        <FixedMenu opened={opened} onRouteChange ={this.closeMenu}/>
+         <FixedMenu opened={opened} hidden={hidden} onRouteChange={this.closeMenu} />
       </Fragment>
     );
   }

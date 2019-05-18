@@ -1,7 +1,11 @@
 import React, { PureComponent } from "react";
+import PropTypes from 'prop-types';
 import styles from "../../styles/SkillItem.module.scss";
 
 export default class SkillItem extends PureComponent {
+  static propTypes = {
+    skill: PropTypes.object.isRequired
+  }
   constructor(props) {
     super(props)
     const {skill} = props;

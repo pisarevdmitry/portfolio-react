@@ -1,13 +1,17 @@
 import React, { PureComponent } from "react";
 import cx from "classnames";
+import PropTypes from 'prop-types';
 import Social from "./Social";
-import FixedMenu from './HamburgerMenu';
+import HamburgerMenu from './HamburgerMenu';
 import styles from "../styles/HeaderSection.module.scss";
 import { ReactComponent as Stars } from "../assets/images/svg/stars1.svg";
-import Layer from "../assets/images/png/Layer 1.png";
+import Layer from "../assets/images/png/Layer 1-min.png";
 import { ReactComponent as Bg } from "../assets/images/svg/bg.svg";
 import { ReactComponent as Stars2 } from "../assets/images/svg/stars2.svg";
 export default class HeaderSection extends PureComponent {
+  static propTypes = {
+    location: PropTypes.object.isRequired
+  }
   state = {
     parallaxTranslate: {
       y: 0
@@ -57,7 +61,7 @@ export default class HeaderSection extends PureComponent {
         </div>
         <div className={styles["header-section__top-line"]}>
           <Social />
-          <FixedMenu/>
+          <HamburgerMenu/>
         </div>
         <div className={styles["header-section__content"]}>
           <span

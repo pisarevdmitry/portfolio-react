@@ -1,11 +1,13 @@
-import React,{Fragment} from 'react'
-import SliderSection from './slider/SliderSection'
-import ReviewSection from './ReviewSection'
+import React, { Fragment } from "react";
+import { Helmet } from "react-helmet";
+import SliderSection from "./slider/SliderSection";
+import ReviewSection from "./ReviewSection";
 export default function MyWorksPage() {
   return (
     <Fragment>
-        <SliderSection/>
-        <ReviewSection/>
+      <Helmet>Мои работы</Helmet>
+      <SliderSection />
+      <ReviewSection />
     </Fragment>
-  )
+  );
 }

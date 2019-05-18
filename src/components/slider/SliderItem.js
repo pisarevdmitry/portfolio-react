@@ -1,5 +1,7 @@
 import React from "react";
 import styles from '../../styles/SlideItem.module.scss'
+import PropTypes from 'prop-types';
+
 export default function SliderItem(props) {
   return (
     <div className={styles["slider__image"]}>
@@ -10,4 +12,7 @@ export default function SliderItem(props) {
       />
     </div>
   );
+}
+SliderItem.propTypes = {
+  slide: PropTypes.object.isRequired
 }

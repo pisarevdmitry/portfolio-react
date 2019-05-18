@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { isEmail } from "validator";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import {
   getFeedbackProccessing,
@@ -9,6 +10,11 @@ import {
 import styles from "../styles/FeedbackForm.module.scss";
 import formStyles from "../styles/Form.module.scss";
  class FeedbackForm extends PureComponent {
+   static propTypes = {
+     proceesing: PropTypes.bool.isRequired,
+     serverMsg: PropTypes.string,
+     feedBackRequest: PropTypes.func.isRequired
+   }
   state = {
     name: "",
     email: "",

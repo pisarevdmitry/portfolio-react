@@ -1,6 +1,8 @@
 import React, { PureComponent } from "react";
 import { Switch, Route } from "react-router-dom";
+import {Helmet} from "react-helmet";
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {getPopupState, getPopupMsg , clearPopUp } from '../../modules/popup'
 import Header from "./Header";
 import Nav from "./Nav";
@@ -8,6 +10,11 @@ import PopUp from './PopUp'
 import { adminRoutes } from "../../routes";
 import styles from '../../styles/admin/AdminPage.module.scss'
 class AdminPage extends PureComponent {
+  static propTypes = {
+    popup: PropTypes.bool.isRequired,
+    msg: PropTypes.string,
+    clearPopUp: PropTypes.func.isRequired
+  }
   renderRoutes() {
     return adminRoutes.map(route => {
       return (
@@ -34,6 +41,11 @@ class AdminPage extends PureComponent {
     const {popup,msg} = this.props
     return (
       <div className={styles['admin-page']}>
+        <Helmet>
+          <title>
+            AdminPage
+          </title>
+        </Helmet>
         <Header />
         <Nav />
         <div className={styles.content}>

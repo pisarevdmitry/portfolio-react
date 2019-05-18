@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { withFormik } from "formik";
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {addArticleRequest, getRequestProcessing} from '../../modules/blog'
 import styles from "../../styles/admin/BlogForm.module.scss";
 import inputStyles from "../../styles/admin/Input.module.scss";
@@ -24,6 +25,16 @@ const fields = [
   }
 ];
 class BlogForm extends PureComponent {
+  static propTypes = {
+    handleChange: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+    setFieldValue: PropTypes.func.isRequired,
+    values: PropTypes.object.isRequired,
+    touched: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired,
+    requestProcessing: PropTypes.bool.isRequired,
+    addArticleRequest: PropTypes.func.isRequired
+  }
   renderForm = () => {
     const { values, touched, errors, handleChange } = this.props;
     return fields.map(field => {

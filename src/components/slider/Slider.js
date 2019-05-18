@@ -1,7 +1,21 @@
 import React, { PureComponent, Fragment } from "react";
 import styles from "../../styles/Slider.module.scss";
 import SliderItem from "./SliderItem";
+import PropTypes from 'prop-types';
+
 export default class Slider extends PureComponent {
+  static propTypes = {
+    startingSlide: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
+    ]).isRequired,
+    slides: PropTypes.arrayOf(PropTypes.object),
+    action: PropTypes.oneOfType([
+      PropTypes.oneOf([null]),
+      PropTypes.arrayOf(PropTypes.object),
+    ])
+  }
+
   constructor(props) {
     super(props);
     this.container = React.createRef();
@@ -47,8 +61,9 @@ export default class Slider extends PureComponent {
     }
   }
   componentDidMount() {
-    const {mode} = this.props
-    this.setState({ height: this.container.current.clientHeight, pos: mode === 'down'? 0 : -this.container.current.clientHeight });
+    const {mode} = this.props;
+    const box = this.container.current.getBoundingClientRect()
+    this.setState({ height: box.height, pos: mode === 'down'? 0 : -box.height });
     window.addEventListener('resize',this.setHeight)
   }
   componentWillUnmount() {
@@ -77,7 +92,7 @@ export default class Slider extends PureComponent {
     console.log('transition End')
     this.setState({
       current: next,
-    },() => setTimeout(this.moveBack,500))
+    },() => setTimeout(this.moveBack,200))
   }
   isDownMode = () => {
    return this.props.mode === 'down'

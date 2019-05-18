@@ -1,16 +1,21 @@
 import React, { PureComponent } from "react";
 import { Link, withRouter } from "react-router-dom";
+import PropTypes from 'prop-types';
 import cx from "classnames";
 import styles from "../styles/Navigation.module.scss";
 
 class Navigation extends PureComponent {
+  static propTypes = {
+    isFixed: PropTypes.bool,
+    onRouteChange: PropTypes.func,
+    location: PropTypes.object.isRequired
+  }
   render() {
     const {
       isFixed,
       onRouteChange,
       location: { pathname }
     } = this.props;
-    console.log(pathname);
     return (
       <nav
         className={cx(styles.navigation, {

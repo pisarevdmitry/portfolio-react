@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 import produce from "immer";
 import {
   getLoaded,
@@ -16,6 +17,20 @@ import AdminSkillItem from "./AdminSkillItem";
 import AddSkill from "./AddSkill";
 
 class SkillsBlock extends PureComponent {
+
+  static propTypes = {
+    loadSkills: PropTypes.func.isRequired,
+    addSkillRequest: PropTypes.func.isRequired,
+    deleteSkillRequest: PropTypes.func.isRequired,
+    updateSkills: PropTypes.object.isRequired,
+    isLoaded: PropTypes.bool.isRequired,
+    requestProcessing: PropTypes.bool.isRequired,
+    skills: PropTypes.oneOfType([
+      PropTypes.oneOf([null]),
+      PropTypes.object,
+    ])
+  }
+
   state = { skills: null };
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.skills && !prevState.skills) {

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import styles from '../../styles/BlogArticle.module.scss'
 export default function BlogArticle(props) {
     const {article} = props
@@ -11,4 +12,8 @@ export default function BlogArticle(props) {
       </p>
     </div>
   );
+}
+
+BlogArticle.propTypes = {
+  article: PropTypes.object.isRequired
 }

@@ -1,20 +1,30 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import styles from "../styles/Map.module.scss";
 
 export default class Map extends Component {
+  static propTypes = {
+    zoom: PropTypes.number.isRequired,
+    styles: PropTypes.arrayOf(PropTypes.object).isRequired,
+    markers: PropTypes.arrayOf(PropTypes.object).isRequired,
+    center: PropTypes.shape({
+      lat: PropTypes.number.isRequired,
+      lng: PropTypes.number.isRequired
+    }).isRequired
+  }
   constructor() {
     super();
     this.map = React.createRef();
     this.gmap = null;
     this.screenWidth = document.documentElement.clientWidth;
   }
-  componentDidMount() {
+   componentDidMount() {
     console.log(this.map.current);
     window.addEventListener("resize",this.resize)
     this.loadMap();
     this.setMarkers()
     this.setMap();
-  }
+  } 
   componentWillUnmount() {
     window.removeEventListener('resize',this.resize)
   }

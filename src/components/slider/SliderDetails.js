@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "../../styles/SliderDetails.module.scss";
+import PropTypes from 'prop-types';
+
 export default function SliderDetails(props) {
   const {work} = props
   return (
@@ -13,4 +15,8 @@ export default function SliderDetails(props) {
       </div>
     </div>
   );
+}
+
+SliderDetails.propTypes = {
+  work: PropTypes.object.isRequired
 }
