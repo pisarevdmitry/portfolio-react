@@ -43,7 +43,7 @@
     "build:prod": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start": "node ./server/bin/www"
+    
   },
   "eslintConfig": {
     "extends": "react-app"
