@@ -14,7 +14,7 @@ export default class HamburgerMenu extends PureComponent {
       hidden: false
     });
   };
-  closeMenu = () => {
+  closeMenu = (e) => {
     this.setState({
       opened: false,
       hidden: true

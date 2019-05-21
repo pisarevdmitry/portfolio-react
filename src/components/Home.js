@@ -38,7 +38,6 @@ import withAuth from "./HOC/withAuth";
         y: y + -movementY * factor
       }
     });
-    //console.log(movementX, movementY)
   };
   onAuthHandler = () => {
     const {user, history} = this.props

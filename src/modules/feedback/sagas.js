@@ -18,7 +18,7 @@ function* sendFeedback() {
 
 function* sendFeedbackFlow({payload}) {
   try{
-    yield call(axios.post, "/contacts", payload);
+    yield call(axios.post, "api/contacts", payload);
       yield put(feedBackRequestEnd())
       yield put(setFeedBackMsg('Спасибо За Отклик'))
   } catch (e) {

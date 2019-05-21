@@ -22,7 +22,7 @@ class SkillsBlock extends PureComponent {
     loadSkills: PropTypes.func.isRequired,
     addSkillRequest: PropTypes.func.isRequired,
     deleteSkillRequest: PropTypes.func.isRequired,
-    updateSkills: PropTypes.object.isRequired,
+    updateSkillsRequest: PropTypes.func.isRequired,
     isLoaded: PropTypes.bool.isRequired,
     requestProcessing: PropTypes.bool.isRequired,
     skills: PropTypes.oneOfType([

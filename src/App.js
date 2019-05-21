@@ -3,8 +3,9 @@ import { Helmet } from "react-helmet";
 import "normalize.css/normalize.css";
 import "./App.scss";
 import { Provider } from "react-redux";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route,Switch } from "react-router-dom";
 import store from "./createStore";
+import ErrorPage from './components/ErrorPage'
 import PrivateRoute from "./components/PrivateRoute";
 import Preloader from "./components/Preloader";
 import routes from "./routes";
@@ -75,7 +76,13 @@ class App extends PureComponent {
             <meta content="ie=edge" httpEquiv="x-ua-compatible" />
           </Helmet>
           {!loaded && <Preloader  percents ={(currentlyLoadded / RequiredAssets)}/>}
-          <div className="App">{this.renderRoutes()}</div>
+          <div className="App">
+            <Switch>
+              {this.renderRoutes()}
+              <Route component={ErrorPage}/>
+            </Switch>
+          
+          </div>
         </BrowserRouter>
       </Provider>
     );
