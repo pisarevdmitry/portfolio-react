@@ -1,24 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+# PortfolioApp.
 
 
-### `npm run build`
+### for dev. 
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. in file  server/config/config.json add yours database and smtp credentials;
+2. run command "npm run start:dev"
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### for prod. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. in file  server/config/config.json add yours database and smtp credentials;
+2. run command "npm run build:prod"
+3. place yours build files inside server/public
+4. run command "npm run start"

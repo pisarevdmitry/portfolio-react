@@ -10,8 +10,10 @@ import PrivateRoute from "./components/PrivateRoute";
 import Preloader from "./components/Preloader";
 import routes from "./routes";
 
+const prelodededAssets = [import('./assets/images/png/Layer 1-min.png'),import('./assets/images/jpg/night.jpg')]
+
 class App extends PureComponent {
-  state = { loaded: false, RequiredAssets: 1, currentlyLoadded: 0 };
+  state = { loaded: false, RequiredAssets: prelodededAssets.length, currentlyLoadded: 0 };
   renderPrivateRoute = Component => {
     return (
       <PrivateRoute>
@@ -41,19 +43,24 @@ class App extends PureComponent {
       );
     });
   }
-  preloadAssets = onLoad => {
+  preloadAsset = (asset) => {
     return new Promise(resolve => {
-      const image = import("./assets/images/png/Layer 1-min.png");
-      image.then(module => {
+      asset.then(module => {
+        console.log('load', module.default)
         const img = document.createElement("img");
         img.src = module.default;
         img.onload = () => {
-          onLoad();
+          this.onLoad();
           resolve()
         };
       });
     });
+   
+  }
+  preloadAssets = onLoad => {
+    return Promise.all(prelodededAssets.map(asset => this.preloadAsset(asset)))
   };
+
   onLoad = () => {
     this.setState(state => ({
       currentlyLoadded: state.currentlyLoadded + 1
@@ -65,7 +72,10 @@ class App extends PureComponent {
       setTimeout(() => {
         this.setState({ loaded: true });
       }, 1000);
-    });
+    })
+    .catch( ( )=> {
+      this.setState({ loaded: true })
+    })
   }
   render() {
     const { loaded, RequiredAssets, currentlyLoadded } = this.state;
