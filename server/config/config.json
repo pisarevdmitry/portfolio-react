@@ -3,21 +3,21 @@
     "path": "http://localhost:3500"
   },
   "db": {
-    "host": "ds247047.mlab.com",
-    "port": "47047",
+    "host": "db  host",
+    "port": " db port",
     "name": "portfolio-project",
-    "user": "user",
-    "password": "1"
+    "user": " db login",
+    "password": "db password"
   },
   "mail": {
     "subject": "Сообщение с сайта порфолио",
     "smtp": {
-      "host": "smtp.gmail.com",
+      "host": "smtp host",
       "port": 465,
       "secure": true,
       "auth": {
-        "user": "dmitrytest25@gmail.com",
-        "pass": "dmitrytest25__"
+        "user": "smtp user",
+        "pass": "smtp password"
       }
     }
   }
