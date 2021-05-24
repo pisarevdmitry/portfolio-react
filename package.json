@@ -14,7 +14,7 @@
     "express-fileupload": "^0.3.0",
     "express-session": "^1.15.6",
     "formik": "^1.5.4",
-    "gsap": "^2.1.2",
+    "gsap": "^3.6.0",
     "immer": "^3.1.1",
     "mongoose": "^4.13.9",
     "morgan": "~1.9.0",
