@@ -3,10 +3,10 @@
     "path": "http://localhost:3500"
   },
   "db": {
-    "host": "db  host",
-    "port": " db port",
-    "name": "portfolio-project",
-    "user": " db login",
+    "host": "db host",
+    "port": "db port",
+    "name": "db name",
+    "user": "db user",
     "password": "db password"
   },
   "mail": {
