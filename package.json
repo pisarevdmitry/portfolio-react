@@ -37,7 +37,7 @@
     "request": "^2.83.0",
     "reselect": "^4.0.0",
     "serve-favicon": "~2.4.5",
-    "validator": "^10.11.0"
+    "validator": "^13.7.0"
   },
   "scripts": {
     "start:dev": " concurrently \"npm run start\" \"react-scripts start\"",
